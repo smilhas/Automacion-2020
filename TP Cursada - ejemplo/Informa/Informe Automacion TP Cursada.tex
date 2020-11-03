@@ -1,0 +1,156 @@
+%% LyX 2.2.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{endnotes}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ \let\footnote=\endnote
+
+\makeatother
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>.}}
+
+\begin{document}
+\begin{center}
+\includegraphics[width=10cm]{\string"../../../Diseno de Equipos Electronicos/_Proyecto/Informes/_INFORME/Imagenes/ITBA logo\string".eps}
+\par\end{center}
+
+\begin{center}
+\textbf{\Huge{}Automación Industrial}\\
+\textbf{\Huge{}}\\
+\textbf{\Huge{}}\\
+\textbf{\Huge{}}\\
+\textbf{\Huge{}}\\
+\textbf{\Huge{}}\\
+\textbf{\Huge{}}\\
+\par\end{center}{\Huge \par}
+
+\begin{center}
+\textbf{\textcolor{gray}{\Huge{}Trabajo Práctico de Cursada}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\textbf{\textcolor{gray}{\Huge{}}}\\
+\par\end{center}{\Huge \par}
+
+\begin{flushleft}
+\textbf{\Large{}Autores:}
+\par\end{flushleft}{\Large \par}
+
+\begin{center}
+{\Large{}Franco, Tomás Mario - 53.777}
+\par\end{center}{\Large \par}
+
+\begin{center}
+{\Large{}García Eleisequi, Santiago - 50.089}
+\par\end{center}{\Large \par}
+
+\begin{flushleft}
+\textbf{\Large{}Tutores}{\Large{}:}
+\par\end{flushleft}{\Large \par}
+
+\begin{center}
+{\Large{}Ghersin, Alejandro Simón}
+\par\end{center}{\Large \par}
+
+\begin{center}
+{\Large{}Arias, Rodolfo Enrique}
+\par\end{center}{\Large \par}
+
+\begin{center}
+\pagebreak{}
+\par\end{center}
+
+\tableofcontents{}
+
+\listoffigures
+
+\listoftables
+
+\newpage{}
+
+\section*{Introducción}
+
+En el presente trabajo se estudió el control tanto de fuerzas como
+de posición de un brazo del tipo RR. El mimso está limitado por una
+pared que intersecta al $eje\ XY$ en los puntos $P_{1}=(2,0)$ y
+$P_{2}=(0,2)$ ubicada en un plano. A continuación se muestra una
+esquematización del sistema a estudiar.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=10cm]{\string"Imagenes/Esquema de trabajo\string".eps}
+\par\end{centering}
+\caption{Esquema de trabajo.}
+
+\end{figure}
+
+
+\section{Control de posición no lineal de un manipulador robótico}
+
+Se desarrolla a continuación un controlador cartesiano de posición
+que hace que el efector final del manipulador se desplace desde el
+punto $P_{inicial}=(1,-1)$ hasta el punto $P_{final}=(1,1)$.
+
+\subsection{Análisis inicial}
+
+A continuación se observa en la figura \ref{fig: E1 Joint vs time}
+la gráfica de como varían las cordenadas joint respecto al tiempo.
+En rojo se presenta la variable $q_{1}$ que representa el ángulo
+$\theta_{1}$; y en negro $q_{2}$ que representa el ángulo $\theta_{2}$.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=8cm]{\string"Imagenes/Coordenadas Joint\string".eps}
+\par\end{centering}
+\caption{Gráficas de las coordenadas joint en el tiempo.\label{fig: E1 Joint vs time}}
+
+\end{figure}
+
+Se presenta en el gráfico de la figura \ref{fig: E1 Coord XY respecto a t}
+las coordenadas cartesianas $x$ e $y$de la posición del efector
+final. En rojo se observa la posición deseada $\vec{X}$y en azul
+se contrasta la posición real del efector final. Se observa que las
+trayectorias son similares; si bien en el gráfico de la coordenada
+$x$ hay una gran diferencia respecto de las gráficas es porque se
+realizó un zoom para mostrar dicha diferencia.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=8cm]{\string"Imagenes/Real Vs Deseada XYt\string".eps}
+\par\end{centering}
+\caption{Gráficas de las coordenadas cartesianas respecto al tiempo.\label{fig: E1 Coord XY respecto a t}}
+\end{figure}
+
+Se presenta a continuación una manera de observar la trayectoria,
+como la coordenada $y$ respecto de $x$. También se presenta aquí
+en rojo la trayectoria deseada o ideal y en azul la trayectoria real.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=8cm]{\string"Imagenes/Real Vs Deseada XY\string".eps}
+\par\end{centering}
+\caption{Gráficas de las coordenadas cartesianas X respecto de Y.}
+\end{figure}
+
+
+\subsection{Análisis con 80\% error}
+
+\section{Control de fuerza no lineal de un manipulador robótico}
+
+\section{Control híbrido no lineal de un manipulador robótico}
+\end{document}
