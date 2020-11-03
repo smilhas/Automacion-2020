@@ -45,8 +45,8 @@ q0=[0 0]; %eligo un angulo inicial
 T1=transl(1,-1,0);
 T2=transl(1,1,0);
 
-q1=messi.ikine(T1,'q0', [pi/2,pi/2], 'mask', [1, 1, 0, 0, 0, 0]);                    %Posicion joint inicial
-q2=messi.ikine(T2,'q0', [pi/2,pi/2], 'mask', [1, 1, 0, 0, 0, 0]);                    %Posicion joint final
+q1=messi.ikine(T1,'q0', q0, 'mask', [1, 1, 0, 0, 0, 0]);                    %Posicion joint inicial
+q2=messi.ikine(T2,'q0', q0, 'mask', [1, 1, 0, 0, 0, 0]);                    %Posicion joint final
 t=[0:0.05:2]';                          %Tiempo de trayectoria propuesto
 
 % TRAYECTORIAS EN ESPACIO DE ARTICULACION
