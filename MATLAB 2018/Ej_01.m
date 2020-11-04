@@ -40,7 +40,7 @@ Tool = transl([L2, 0, 0]); % Offset de la herramienta
 messi = SerialLink([links{:}], 'tool', Tool, 'name', 'messi');
 
 %% Calculo de trayectoria
-q0=[0 0]; %eligo un angulo inicial
+q0=[0 -pi/2]; %eligo un angulo inicial
 
 T1=transl(1,-1,0);
 T2=transl(1,1,0);
@@ -52,6 +52,22 @@ t=[0:0.05:2]';                          %Tiempo de trayectoria propuesto
 % TRAYECTORIAS EN ESPACIO DE ARTICULACION
 %Aplica trayectoria con polinomio de grado 5, con velocidad inicial y final igual a 0
 [q,qd,qdd]=jtraj(q1,q2,t);
+
+p1 = [1 -1 0];
+pm = [1 0 0];
+p2 = [1 1 0];
+
+
+points = [p1; p2];
+times = [0, 1.1];
+step_t = 1e-2; %step de trayectoria
+
+
+[X, Xd, Xdd] = genTraj(points, times, step_t);
+t = 0: step_t:max(times);
+Xt = timeseries (X,t);
+Xdt = timeseries (Xd,t);
+Xddt = timeseries (Xdd,t);
 
 %Graficos de Trayectoria en espacio de Joint
 messi.plot(q);
