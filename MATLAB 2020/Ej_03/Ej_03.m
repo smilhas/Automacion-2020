@@ -10,11 +10,15 @@ messi = RobotInit(pert);
 
 %% CALCULO DE TRAYECTORIAS
 % Transformadas homogeneas inicial/final
-T1=transl(1,-1,0);
-T2=transl(1,1,0);
+T1=transl(1.001,1,0);
+T2=transl(0.1,1.9,0);
 
 % Cálculo de posicion inicial/final en espacio joint
-q0=[0 -pi/2]; %Elijo un angulo inicial
+%q0=[0 -pi/2]; %Elijo un angulo inicial
+q0 = [0.0000    1.5698];
+%q0= [-20.53*pi/180  pi/4+abs(-20.53*pi/180)];
+%T1 = messi.fkine(q0);
+
 q1=messi.ikine(T1,'q0', q0, 'mask', [1, 1, 0, 0, 0, 0]);    %Posicion joint inicial
 q2=messi.ikine(T2,'q0', q0, 'mask', [1, 1, 0, 0, 0, 0]);    %Posicion joint final
 
@@ -24,7 +28,7 @@ Tmax = 2;
 t=(0:step:Tmax)';   %Tiempo de trayectoria propuesto
 
 % Trayectorias en espacio joint
-[q,qd,qdd]=jtraj(q1,q2,t);
+[q,qd,qdd]=jtraj(q0,q2,t);
 PlotTraj(t,q,'Trayectoria en espacio joint',['Tiempo', 'Angulo'], ['tita_1','tita_2'], 1);
 
 % Calculo trayectoria en caratesianas a partir del espacio joint
@@ -50,9 +54,9 @@ Xt = timeseries (x_j,t);
 Xdt = timeseries (xd_j,t);
 Xddt = timeseries (xdd_j,t);
 
-Xt = timeseries (x_c,t);
-Xdt = timeseries (xd_c,t);
-Xddt = timeseries (xdd_c,t);
+% Xt = timeseries (x_c,t);
+% Xdt = timeseries (xd_c,t);
+% Xddt = timeseries (xdd_c,t);
 
 %% Definiciones de función
 

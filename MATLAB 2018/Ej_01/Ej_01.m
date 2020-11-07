@@ -56,12 +56,12 @@ Xddt = timeseries (xdd_c,t);
 
 %% Definiciones de función
 
-function PlotTraj(t,x,title,labels,legends,index)
+function PlotTraj(t,x,banana,labels,legends,index)
     figure(index)
     plot(t,x)
-%     title(title)
-%     xlabel(labels(1));
-%     ylabel(labels(2));
+    title(banana)
+    xlabel(labels(1));
+    ylabel(labels(2));
     grid on
-%     legend(legends(1),legends(2))
+    legend(legends(1),legends(2))
 end
