@@ -10,12 +10,12 @@ messi = RobotInit(pert);
 
 %% CALCULO DE TRAYECTORIAS
 % Transformadas homogeneas inicial/final
-T1=transl(1.001,1,0);
+T1=transl(1.00001,1,0);
 T2=transl(0.1,1.9,0);
 
 % Cálculo de posicion inicial/final en espacio joint
 %q0=[0 -pi/2]; %Elijo un angulo inicial
-q0 = [0.0000    1.5698];
+q0 = [-20.53*pi/180  pi/4+abs(20.53*pi/180)]
 %q0= [-20.53*pi/180  pi/4+abs(-20.53*pi/180)];
 %T1 = messi.fkine(q0);
 
