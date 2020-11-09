@@ -27,7 +27,7 @@ q2=messi.ikine(T2,'q0', q0, 'mask', [1, 1, 0, 0, 0, 0]);    %Posicion joint fina
 
 % Definici�n del tiempo
 step = 0.05;
-Tmax = 4;
+Tmax = 30;
 t=(0:step:Tmax)';   %Tiempo de trayectoria propuesto
 
 % Trayectorias en espacio joint
