@@ -4,7 +4,7 @@ clc
 %% Creacion del brazo RR
 
 %Perturbacion
-pert = 0.1;
+pert = 0.0;
 
 messi = RobotInit(pert);
 
