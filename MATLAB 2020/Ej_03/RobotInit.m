@@ -9,7 +9,7 @@ function arm = RobotInit(pert)
     m = 1 +(2*rand()-1)*pert;
 
     % Centro de masa en extremo
-    r=1;
+    r=L1;
     rv = [r+(2*rand()-1)*pert, (2*rand()-1)*pert, 0];
 
     % Friccion unitaria:     'B', 1
