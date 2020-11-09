@@ -7,7 +7,7 @@ end
 if((x(1)<0)||(x(2)<0))
     d=0;
 end
-temp=d*kenv*1000;%*sqrt(2)/2;
+temp=d*kenv;%*sqrt(2)/2;
 dd=d;
 y = temp;
 
