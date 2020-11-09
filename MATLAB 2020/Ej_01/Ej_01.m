@@ -4,7 +4,7 @@ clc
 %% Creacion del brazo RR
 
 %Perturbacion
-pert = 0.1;
+pert = 0.0;
 
 messi = RobotInit(pert);
 
@@ -53,6 +53,12 @@ Xddt = timeseries (xdd_j,t);
 Xt = timeseries (x_c,t);
 Xdt = timeseries (xd_c,t);
 Xddt = timeseries (xdd_c,t);
+%%  Reejecutar despues de correr el symulink
+sinPert=[ctorque.medicion.time ctorque.medicion.signals.values];
+sinPertT=[t x_j];
+%writematrix(sinPert,'sinPerturbacion.csv');cambiar el nombre sespues de
+%perturbar
+%writematrix(sinPertT,'sinPerturbacionT.csv');
 
 %% Definiciones de función
 
