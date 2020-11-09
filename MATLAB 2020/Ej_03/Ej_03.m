@@ -10,21 +10,22 @@ messi = RobotInit(pert);
 
 %% CALCULO DE TRAYECTORIAS
 % Transformadas homogeneas inicial/final
-T1=transl(1.00001,1,0);
+T1=transl(1.9,0.100015,0);
 T2=transl(0.1,1.9,0);
 
-% Cálculo de posicion inicial/final en espacio joint
+% Cï¿½lculo de posicion inicial/final en espacio joint
 %q0=[0 -pi/2]; %Elijo un angulo inicial
-q0 = [-20.53*pi/180  pi/4+abs(20.53*pi/180)]
+q0 = [-0.260729892263819   0.626641653599234]; % Este empoieza con 10.6 N
+%q0 = [-0.260732942908050   0.626642506273637];  % Este empieza con 7 N
 %q0= [-20.53*pi/180  pi/4+abs(-20.53*pi/180)];
 %T1 = messi.fkine(q0);
 
 q1=messi.ikine(T1,'q0', q0, 'mask', [1, 1, 0, 0, 0, 0]);    %Posicion joint inicial
 q2=messi.ikine(T2,'q0', q0, 'mask', [1, 1, 0, 0, 0, 0]);    %Posicion joint final
 
-% Definición del tiempo
+% Definiciï¿½n del tiempo
 step = 0.05;
-Tmax = 2;
+Tmax = 4;
 t=(0:step:Tmax)';   %Tiempo de trayectoria propuesto
 
 % Trayectorias en espacio joint
@@ -34,11 +35,11 @@ PlotTraj(t,q,'Trayectoria en espacio joint',['Tiempo', 'Angulo'], ['tita_1','tit
 % Calculo trayectoria en caratesianas a partir del espacio joint
 T = messi.fkine(q);
 x_j=transl(T);
-% posición en cartesianas
+% posiciï¿½n en cartesianas
 x_j = x_j(:,[1,2]);
 % velocidad en cartesianas
 xd_j = [diff(x_j)/step; 0 0];
-% aceleración en cartesianas
+% aceleraciï¿½n en cartesianas
 xdd_j = [diff(xd_j)/step; 0 0];
 PlotTraj(t,x_j,'Trayectoria del EE en cartesianas (generada en espacio joint)',['Tiempo', 'Posicion'], ['x','y'], 3);
 
@@ -54,11 +55,11 @@ Xt = timeseries (x_j,t);
 Xdt = timeseries (xd_j,t);
 Xddt = timeseries (xdd_j,t);
 
-% Xt = timeseries (x_c,t);
-% Xdt = timeseries (xd_c,t);
-% Xddt = timeseries (xdd_c,t);
+Xt = timeseries (x_c,t);
+Xdt = timeseries (xd_c,t);
+Xddt = timeseries (xdd_c,t);
 
-%% Definiciones de función
+%% Definiciones de funciï¿½n
 
 function PlotTraj(t,x,plotTitle,labels,legends,index)
     figure(index)
